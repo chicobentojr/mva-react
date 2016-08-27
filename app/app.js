@@ -31,7 +31,9 @@ var App = React.createClass({
           <div className="column">
             <ConversationPane conversation={this.state.selectedConversation} />
           </div>
-          <div className="column"></div>
+          <div className="column">
+            <StoresPane stores={this.state.stores} />
+          </div>
         </div>
       </div>
     )
@@ -105,6 +107,38 @@ var ConversationPane = React.createClass({
 var Message = React.createClass({
   render: function(){
     return <p>{this.props.who} said: "{this.props.text}"</p>;
+  }
+})
+
+var StoresPane = React.createClass({
+  renderStore: function(store){
+    return <Store key={store} index={store} details={this.props.stores[store]} />
+  },
+  render: function(){
+    return (
+      <div id="stores-pane">
+        <h1>Stores & Oven</h1>
+        <ul>
+          {Object.keys(this.props.stores).map(this.renderStore)}
+        </ul>
+      </div>
+    )
+  }
+})
+
+var Store = React.createClass({
+  getCount: function(status){
+    return this.props.details.orders.filter(function (n) { return n.status == status}).length;
+  },
+  render: function(){
+    return (
+      <li>
+        <p>{this.props.index}</p>
+        <p>Orders Confirmed: {this.getCount("Confirmed")}</p>
+        <p>Orders In The Oven: {this.getCount("In The Oven")}</p>
+        <p>Orders Delivered: {this.getCount("Delivered")}</p>
+      </li>
+    )
   }
 })
 
