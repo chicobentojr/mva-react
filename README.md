@@ -1,5 +1,6 @@
-# PizzaBotManager
-Sample app for the React MVA
+# Pizza Bot Manager
+
+Sample app for the [React MVA](https://mva.microsoft.com/en-us/training-courses/react-the-definitive-beginner-s-guide-16547)
 
 ## Dependencies:
 * React
@@ -20,3 +21,7 @@ Run typings to install the React/JSX typings.
 npm install -g typings
 typings install --ambient react-global
 ```
+
+## Thanks
+
+This repository is result of this course [React: The Definitive Beginner's Guide](https://mva.microsoft.com/en-us/training-courses/react-the-definitive-beginner-s-guide-16547) and was copied from the [ReactMVA](https://github.com/sayar/ReactMVA/) repository 
